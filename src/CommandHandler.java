@@ -50,6 +50,15 @@ public class CommandHandler extends ListenerAdapter{
 	    		new SevenSeconds(evt);
 	    	}
 	    	
+	    	//get info about a certain team
+	    	if(message.startsWith(Reference.prefix+"get.teaminfo")) {
+	    		new GetTeamInfo(evt);
+	    	}
+	    	
+	    	//get teams in order of score
+	    	if(message.startsWith(Reference.prefix+"get.topteams")) {
+	    		new GetTopTeams(evt);
+	    	}
 
 	    	//Commands that don't have a separate class
 	    	//Get.pregameURL: gets pre-game scouting sheet URL
