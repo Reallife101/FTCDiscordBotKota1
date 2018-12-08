@@ -4,7 +4,6 @@ public class Help extends ModuleBase {
 
 	public Help(MessageReceivedEvent event) {
 		super(event, "");
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

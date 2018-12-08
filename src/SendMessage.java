@@ -6,10 +6,8 @@ public class SendMessage extends ModuleBase {
 	
 	public SendMessage(MessageReceivedEvent event, String s) {
 		super(event, s);
-		// TODO Auto-generated constructor stub
 	}
 	
-	//@Override
 	public void process(String s) {
 		
 		//tests for Neko mode

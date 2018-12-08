@@ -47,7 +47,6 @@ public class PrintAttendance extends ModuleBase {
 	            // Or we could just do this: 
 	            // ex.printStackTrace();
 	        }
-		// TODO Auto-generated method stub
 
 	}
 

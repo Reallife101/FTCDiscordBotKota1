@@ -3,7 +3,6 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 public class NekoMode extends ModuleBase {
 	public NekoMode(MessageReceivedEvent event) {
 		super(event, "");
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

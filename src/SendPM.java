@@ -7,10 +7,8 @@ public class SendPM extends ModuleBase {
 	
 	public SendPM(MessageReceivedEvent event, String s) {
 		super(event, s);
-		// TODO Auto-generated constructor stub
 	}
 	
-	//@Override
 	public void process(String s) {
 		msg=s;
 		//tests for Neko mode

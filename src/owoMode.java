@@ -4,7 +4,6 @@ public class owoMode extends ModuleBase {
 
 	public owoMode(MessageReceivedEvent event) {
 		super(event, "");
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
