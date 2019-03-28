@@ -35,6 +35,8 @@ public class GetTeamInfo extends ModuleBase {
 
 		response += "/" + server.getJSONObject("generalInfo").getString("teamName");
 		// "Team: 8404/Quixilver"
+		response += "\n"+"https://8404pals.azurewebsites.net/team-info/" + teamNum+"/";
+		// "https://8404pals.azurewebsites.net/team-info/[teamNumber]/"
 
 		Double preTotal = (double) -1;
 		try {

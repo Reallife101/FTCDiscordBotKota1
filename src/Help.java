@@ -10,11 +10,12 @@ public class Help extends ModuleBase {
 	public void process(String s) {
 		new SendPM(event,"__**Commands:**__"+
 				"\n**ping**: Pong!"+
-				"\n**get.preGameURL**: Gets pre-game scouting sheet url. (Google Form)"+
-				"\n**get.inGameURL**: Gets in-game scouting sheet url. (Google Form)"+
+				"\n**get.scoutURL**: Gets scouting sheet url."+
+				"\n**get.teamInfo (Team Number)**: Gets basic infomation on inserted team."+
+				"\n**get.topTeams**: lists all teams in order from best to worst."+
 				"\n**NekoMode (on/off)**: Turns Neko mode on or off. (Automatically turns off other voice modes)"+
 				"\n**OwoMode (on/off)**: Turns Owo mode on or off. (Automatically turns off other voice modes)"
-				+ "\n**get.buddies**: Lists all current buddies for a tournament.");
+				+ "\n**sevenSeconds**: Plays Seven Seconds (Not yet implemented)");
 
 	}
 

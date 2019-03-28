@@ -59,8 +59,19 @@ public class CommandHandler extends ListenerAdapter{
 	    	if(message.startsWith(Reference.prefix+"get.topteams")) {
 	    		new GetTopTeams(evt);
 	    	}
+	    	
+	    	//get teams in order of score and compatibility
+	    	if(message.startsWith(Reference.prefix+"get.compteams")) {
+	    		//new GetCompTeams(evt);
+	    	}
 
 	    	//Commands that don't have a separate class
+	    	
+	    	//Get.scoutURL: gets scouting sheet URL
+	    	if(message.equalsIgnoreCase(Reference.prefix+"get.scouturl")) {
+	    		objChn.sendMessage(objUser.getAsMention()+" https://8404pals.azurewebsites.net").queue();
+	    	}
+	    	
 	    	//Get.pregameURL: gets pre-game scouting sheet URL
 	    	if(message.equalsIgnoreCase(Reference.prefix+"get.pregameurl")) {
 	    		objChn.sendMessage(objUser.getAsMention()+" https://goo.gl/forms/bMccLuBcIZyHyzvx1").queue();

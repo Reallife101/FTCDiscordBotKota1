@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -40,16 +41,36 @@ public class GetTopTeams extends ModuleBase {
 		
 		Map<Integer, String> teams = new HashMap<>();
 		Map<Integer, Double> teamScores = new HashMap<>();
-		
+		for( String i : server.keySet() ) {
+			teams.put( Integer.parseInt(i), server.getString(i) );
+		}
+
 		for( int i : teams.keySet() ) {
-			Double score = server.getJSONObject("performance").getJSONObject("match").getDouble("auton") + server.getJSONObject("performance").getJSONObject("match").getDouble("teleOp");
-			teamScores.put(i, score);
+			try {
+				server = readJsonFromUrl(SCORE_URL + i + "/");
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Double auton = (double) 0;
+			Double tele = (double) 0;
+			try {
+			    auton = server.getJSONObject("performance").getJSONObject("match").getDouble("auton");
+			} catch( Exception e ) {}
+			try {
+			    tele= server.getJSONObject("performance").getJSONObject("match").getDouble("teleOp");
+			} catch( Exception e ) {}
+
+			teamScores.put(i, auton + tele);
 		}
 		
 		// https://stackoverflow.com/a/22132422
 		Map<Integer, Double> sortedTeamScores = teamScores.entrySet().stream()
-                .sorted(Entry.comparingByValue())
-                .collect(Collectors.toMap(Entry::getKey, Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+			    .sorted(Entry.comparingByValue(Collections.reverseOrder()))
+			    .collect(Collectors.toMap(Entry::getKey, Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 		
 		for( int i : sortedTeamScores.keySet() ) {
 			response += "\n" + teams.get(i) + " " + i;
