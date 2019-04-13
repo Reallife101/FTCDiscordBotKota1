@@ -17,28 +17,25 @@ import org.json.JSONObject;
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
-public class GetTopTeams extends ModuleBase {
+public class GetCompTeams extends ModuleBase {
 
 	private static final String SCORE_URL = "https://8404pals.azurewebsites.net/api/team-info/";
 
-
-
-	public GetTopTeams(MessageReceivedEvent event) {
+	public GetCompTeams(MessageReceivedEvent event, String s) {
 		super(event, "");
 	}
 
-
 	@Override
 	public void process(String s) {
-		String response = "**Ordered Teams: (By game Average)**";
-		
+		String response = "Ordered Teams:";
+
 		JSONObject server = null;
 		try {
 			server = readJsonFromUrl(SCORE_URL);
 		} catch (JSONException | IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		Map<Integer, String> teams = new HashMap<>();
 		Map<Integer, Double> teamScores = new HashMap<>();
 		for( String i : server.keySet() ) {
@@ -58,24 +55,24 @@ public class GetTopTeams extends ModuleBase {
 			Double auton = (double) 0;
 			Double tele = (double) 0;
 			try {
-			    auton = server.getJSONObject("performance").getJSONObject("match").getDouble("auton");
+				auton = server.getJSONObject("performance").getJSONObject("match").getDouble("auton");
 			} catch( Exception e ) {}
 			try {
-			    tele= server.getJSONObject("performance").getJSONObject("match").getDouble("teleOp");
+				tele= server.getJSONObject("performance").getJSONObject("match").getDouble("teleOp");
 			} catch( Exception e ) {}
 
 			teamScores.put(i, auton + tele);
 		}
-		
+
 		// https://stackoverflow.com/a/22132422
 		Map<Integer, Double> sortedTeamScores = teamScores.entrySet().stream()
-			    .sorted(Entry.comparingByValue(Collections.reverseOrder()))
-			    .collect(Collectors.toMap(Entry::getKey, Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-		
+				.sorted(Entry.comparingByValue(Collections.reverseOrder()))
+				.collect(Collectors.toMap(Entry::getKey, Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+
 		for( int i : sortedTeamScores.keySet() ) {
 			response += "\n" + teams.get(i) + " " + i;
 		}		
-		
+
 		channel.sendMessage(response).queue();
 	}
 
@@ -98,6 +95,7 @@ public class GetTopTeams extends ModuleBase {
 		} finally {
 			is.close();
 		}
+
 	}
 
 }
