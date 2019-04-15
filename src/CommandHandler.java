@@ -17,7 +17,7 @@ public class CommandHandler extends ListenerAdapter{
 	    	//Variables
 	    	String message = objMsg.getContentRaw();
 	    	
-	    	
+	    	/*
 	    	//screwing around
 	    	if (ChatRefrences.spamDanielPhotos&&evt.getAuthor().getName().equals("Daniel.Noronha")) {
 	    		
@@ -28,7 +28,7 @@ public class CommandHandler extends ListenerAdapter{
 	    		
 	    		//evt.getChannel().sendMessage("Daniel, upload your photos! D:<<").queue();
 	    	}
-	    	
+	    	*/
 	    	
 	    	//Commands
 	    	
@@ -38,7 +38,8 @@ public class CommandHandler extends ListenerAdapter{
 	    		new Help(evt);
 	    	}
 	    	
-	    	//Help command: lists commands
+	    	/*
+	    	//Fortune command: Fortune commands
 	    	if(message.equalsIgnoreCase(Reference.prefix+"get.fortune")) {
 	    		new Fortunes(evt);
 	    	}
@@ -57,12 +58,14 @@ public class CommandHandler extends ListenerAdapter{
 	    	if(message.startsWith(Reference.prefix+"spamDanielPhotos")) {
 	    		new spamDanielPhotos(evt);
 	    	}
+	    	*/
 	    	
 	    	//Ping: displays ping
 	    	if(message.equalsIgnoreCase(Reference.prefix+"ping")) {
 	    		new Ping(evt);
 	    	}
 	    	
+	    	/*
 	    	//PrintData: prints file "AttendanceDatabase"
 	    	if(message.equalsIgnoreCase(Reference.prefix+"printattendance")) {
 	    		new PrintAttendance(evt);
@@ -87,6 +90,7 @@ public class CommandHandler extends ListenerAdapter{
 	    	if(message.startsWith(Reference.prefix+"shit")) {
 	    		new SendMessage(evt,objUser.getAsMention()+" :poop: ");
 	    	}
+	    	*/
 	    	
 	    	//get info about a certain team
 	    	if(message.startsWith(Reference.prefix+"get.teaminfo")) {
@@ -108,6 +112,7 @@ public class CommandHandler extends ListenerAdapter{
 	    		//new GetCompTeams(evt);
 	    	}
 
+	    	/*
 	    	//Commands that don't have a separate class
 	    	//Wassup Kota command
 	    	if(message.equalsIgnoreCase("Wassup Kota")) {
@@ -123,7 +128,7 @@ public class CommandHandler extends ListenerAdapter{
 	    	if(message.contains("pancake")) {
 	    		new SendMessage(evt,objUser.getAsMention()+" I like pancakes! ^-^ :pancakes: ");
 	    	}
-	    	
+	    	*/
 	    	//Get.scoutURL: gets scouting sheet URL
 	    	if(message.equalsIgnoreCase(Reference.prefix+"get.scouturl")) {
 	    		new SendMessage(evt,objUser.getAsMention()+" https://8404pals.azurewebsites.net");

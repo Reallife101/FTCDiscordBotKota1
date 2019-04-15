@@ -17,6 +17,7 @@ public class GetTeamInfo extends ModuleBase {
 
 	private static final String BASEURL = "https://8404pals.azurewebsites.net/api/team-info/";
 	private static final String SCORE_URL = "https://8404pals.azurewebsites.net/api/match-results/";
+	private static final String NOTE_URL = "https://8404pals.azurewebsites.net/api/notes/";
 
 	public GetTeamInfo(MessageReceivedEvent event) {
 		super(event, "");
@@ -132,6 +133,23 @@ public class GetTeamInfo extends ModuleBase {
 
 
 		//Notes
+		JSONObject server3 = null;
+
+		try {
+			server3 = readJsonFromUrl(NOTE_URL + teamNum + "/");
+		} catch (JSONException e) {
+			channel.sendMessage("An error has occured! -_-\nTeam number Notes not in database!").queue();
+			e.printStackTrace();
+		} catch (IOException e) {
+			channel.sendMessage("An error has occured! -_-\n Team number Notes not in database!").queue();
+			e.printStackTrace();
+		}
+		
+		response += "/nNOTES:";
+		for( String i : server3.keySet() ) {
+			response += "/n" + server.getJSONObject(i).getString("tag")+": "+server.getJSONObject(i).getString("message");
+		}
+		
 		//response += "/nNOTES:" + server.getJSONObject("generalInfo").getString("notes");
 		// "Team: 8404/Quixilver"
 
