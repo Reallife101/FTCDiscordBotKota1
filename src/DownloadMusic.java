@@ -14,7 +14,7 @@ public class DownloadMusic extends ModuleBase {
 		url = command.substring(5);
     		new SendMessage(event,user.getAsMention()+" Downloading: "+url);
     		
-    		String download_path="C:\\Users\\ryann\\Desktop\\eclipse\\workplace\\FTCDiscordBot2\\Downloads";
+    		String download_path="";
     		String[] command =
     	    {
     	        "cmd",
