@@ -3,6 +3,7 @@ public class ChatRefrences {
 	 public static boolean nekoMode = false;
 	 public static boolean owoMode = false;
 	 public static boolean spamDanielPhotos = false;
+	 public static boolean playingMusic= false;
 	 
 	public ChatRefrences() {
 		    //ChatRefrences.nekoMode = true;
@@ -23,5 +24,11 @@ public class ChatRefrences {
 			  ChatRefrences.spamDanielPhotos = b;
 			  
 		  }
+		  
+		  public static void playingMusic(boolean b){
+			  ChatRefrences.playingMusic = b;
+			  
+		  }
+
 
 }

@@ -19,13 +19,13 @@ public class shipIt extends ModuleBase {
 		
 		Random r = new Random();
 		int low = 1;
-		int high = 32;
+		int high = 36;
 		String hold="";
 		int result = r.nextInt(14);
 		
-		String[] names = {"Ryan Ngoon", "Ryan Niemi", "Madeleine", "Andrea", "Terrence", "Deborah", "Jessica", "Emily", "Ethan", "Ellen", "Daniel", "Alex", "Tom", "Kobe","Aroshi"};
+		String[] names = {"Ryan Ngoon", "Ryan Niemi", "Madeleine", "Andrea", "Terrence", "Deborah", "Jessica", "Emily", "Ethan", "Ellen", "Daniel N.", "Alex", "Tom", "Kobe","Aroshi", "Daniel X.", "Anahita","Amelia"};
 		for (int i=0;i<names.length;i++ ) {
-			result = r.nextInt(14);
+			result = r.nextInt(17);
 			hold=names[i];
 			names[i]=names[result];
 			names[result]=hold;
@@ -141,6 +141,18 @@ public class shipIt extends ModuleBase {
             break;
         case 31: 
             ship = ""+names[3]+" thinks "+names[4]+" is the droid they're looking for!";
+            break;
+        case 32: 
+            ship = ""+names[3]+" wants "+names[4]+"'s shirt, cause its made of boyfriend material!";
+            break;
+        case 33: 
+            ship = ""+names[3]+" thinks if "+names[4]+" was a transformer then they be Optimus Fine!";
+            break;
+        case 34: 
+            ship = ""+names[3]+" thinks "+names[4]+" invented the airplane cause they seem Wright to them!";
+            break;
+        case 35: 
+            ship = ""+names[3]+" just called the police cause "+names[4]+" stole their heart!";
             break;
 		default: 
 			ship = "Love is... not in the air right now."; 
